@@ -1,0 +1,22 @@
+<ActionBar title="CiberCellHN Mobile"></ActionBar>
+<StackLayout class="page" padding="12">
+  <Label text="Catálogo de celulares" class="title"></Label>
+  <SearchBar hint="Buscar por nombre, marca o categoría" [(ngModel)]="search" (textChange)="filter()"></SearchBar>
+  <StackLayout orientation="horizontal" class="form-row">
+    <TextField hint="Nombre del nuevo producto" [(ngModel)]="newName" appMinProductName></TextField>
+    <Button text="Agregar" (tap)="addName()"></Button>
+  </StackLayout>
+  <Button text="↻ Actualizar catálogo" (tap)="refresh()" class="refresh-button"></Button>
+  <ListView [items]="filtered" separatorColor="#dddddd">
+    <ng-template let-item="item">
+      <GridLayout columns="*,auto" rows="auto" class="product-row" (tap)="open(item)" (longPress)="longPress(item)">
+        <FlexboxLayout col="0" flexDirection="column" justifyContent="space-between" class="product-info">
+          <Label [text]="item.name" class="product-name"></Label>
+          <Label [text]="item.brand + ' • ' + item.category"></Label>
+          <Label [text]="'L ' + item.price" class="price"></Label>
+        </FlexboxLayout>
+        <Button col="1" text="🏷" (tap)="chooseCategory(item)"></Button>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+</StackLayout>

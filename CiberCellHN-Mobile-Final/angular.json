@@ -1,0 +1,5 @@
+{
+  "version":1,
+  "projects":{"cibercellhn":{"projectType":"application","root":"","sourceRoot":"src"}},
+  "defaultProject":"cibercellhn"
+}

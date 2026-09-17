@@ -1,0 +1,3 @@
+import {Component} from "@angular/core";import {ActivatedRoute} from "@angular/router";import {RouterExtensions} from "@nativescript/angular";import {Phone} from "../../models/phone";import {PhoneService} from "../../services/phone.service";import {AnimationCurve, View} from "@nativescript/core";
+@Component({selector:"detail",templateUrl:"./detail.component.html"})export class DetailComponent{phone?:Phone;constructor(route:ActivatedRoute,private service:PhoneService,private router:RouterExtensions){const id=Number(route.snapshot.params["id"]);this.phone=service.getById(id);}
+back(){this.router.back();}animate(view:View){view.animate({rotate:360,duration:500,curve:AnimationCurve.easeInOut});}}

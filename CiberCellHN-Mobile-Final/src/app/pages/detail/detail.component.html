@@ -1,0 +1,8 @@
+<ActionBar title="Detalle del celular"></ActionBar>
+<ScrollView><StackLayout padding="20" *ngIf="phone">
+  <Label [text]="phone.name" class="h1"></Label><Label [text]="phone.brand"></Label>
+  <Label [text]="'Categoría: '+phone.category"></Label><Label [text]="'Precio: L '+phone.price" class="price"></Label>
+  <Label [text]="phone.description" textWrap="true"></Label>
+  <Button text="★ Animar botón" #animatedButton (tap)="animate(animatedButton)"></Button>
+  <Button text="Regresar al catálogo" (tap)="back()"></Button>
+</StackLayout></ScrollView>
